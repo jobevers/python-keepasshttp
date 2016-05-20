@@ -1,0 +1,12 @@
+language: python
+python: 2.7
+
+install:
+  - pip install coveralls nose
+  - pip install .
+
+script:
+  - nosetests --with-coverage --cover-package=keepasshttp
+
+after_success:
+  - coveralls
