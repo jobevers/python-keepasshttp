@@ -48,6 +48,12 @@ protocol
 [Keepass Protocol](https://github.com/jobevers/python-keepasshttp/blob/master/Keepass%20Protocol.ipynb)
 for reference.
 
+## Installing http server for keepassx
+
+Versions of keepassx have been written that port the functionality of
+the keepasshttp plugin. Check out
+https://github.com/keepassx/keepassx/pull/111 for the latest info.
+
 ## Related projects
 
 https://github.com/ccryx/python-keephasshttpc
