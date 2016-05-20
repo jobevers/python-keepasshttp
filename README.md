@@ -27,7 +27,7 @@ The password field is protected with a thin wrapper so that it
 isn't accidently printed.  The actual value of the password can
 be accessed like
 
-```
+```python
 logins[0]['Password'].value
 ```
 
