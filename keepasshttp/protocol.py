@@ -50,6 +50,7 @@ def getLogins(url, id_, key, requestor=None):
         'Url': crypto.encrypt(url, key, iv)
     }
     output = requestor(key, input_data, id_, iv=iv)
+    print output
     decrypted = [
         crypto.decryptDict(entry, key, output['Nonce'])
         for entry in output.get('Entries', [])
@@ -64,7 +65,7 @@ class Requestor(object):
         self.url = url
 
     def __call__(self, key, input_data, id_, standard_data=None, iv=None):
-        data = self.mergeData(key, input_data, id_, standard_data=None, iv=None)
+        data = self.mergeData(key, input_data, id_, standard_data, iv)
         response = requests.post(self.url, json=data)
         return self.processResponse(response, key)
 

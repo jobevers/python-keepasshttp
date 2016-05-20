@@ -4,7 +4,7 @@ class Password(object):
     This helps prevent accidentally printing a password to the terminal.
     """
     def __init__(self, password):
-        self.password = password
+        self.value = password
 
     def __str__(self):
         return '*****'
