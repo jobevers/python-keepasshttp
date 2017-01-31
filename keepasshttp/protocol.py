@@ -28,7 +28,7 @@ def associate(requestor=None):
         'RequestType': 'associate',
         'Key': key
     }
-    output = requestor(key, input_data, None, {})
+    output = requestor(key, input_data, None)
     return key, output['Id']
 
 
