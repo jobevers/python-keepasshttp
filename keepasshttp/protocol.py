@@ -41,7 +41,7 @@ def testAssociate(id_, key, requestor=None):
     return requestor(key, input_data, id_)
 
 
-def getLogins(url, id_, key, requestor=None):
+def getLogins(url, id_, key, requestor=None, print_output=False):
     """Query keepass for entries that match `url`"""
     requestor = requestor or DEFAULT_REQUESTOR
     iv = crypto.getRandomIV()
@@ -50,7 +50,8 @@ def getLogins(url, id_, key, requestor=None):
         'Url': crypto.encrypt(url, key, iv)
     }
     output = requestor(key, input_data, id_, iv=iv)
-    print output
+    if print_output:
+        print output
     decrypted = [
         crypto.decryptDict(entry, key, output['Nonce'])
         for entry in output.get('Entries', [])
